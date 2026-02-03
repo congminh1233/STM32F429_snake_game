@@ -5,7 +5,7 @@
 
 ## 1. Giới thiệu
 
-Báo cáo này trình bày quy trình thiết kế và thi công phần mềm game **Snake (Rắn săn mồi)** trên bộ kit phát triển **STM32F429 Discovery**. Dự án sử dụng hệ điều hành thời gian thực **FreeRTOS** để quản lý đa nhiệm và thư viện **BSP** để điều khiển màn hình cảm ứng **LCD TFT** tích hợp.
+Báo cáo này trình bày quá trình thiết kế và phát triển game **Snake (Rắn săn mồi)** trên bộ kit **STM32F429 Discovery**. Dự án sử dụng hệ điều hành thời gian thực **FreeRTOS** để quản lý đa nhiệm và thư viện **BSP** để điều khiển màn hình cảm ứng **LCD TFT** tích hợp.
 
 ## 2. Phần cứng & Công cụ sử dụng
 
@@ -31,7 +31,7 @@ Quá trình phát triển được chia thành các giai đoạn nhỏ (mileston
 ### 3.1. Giai đoạn 1: Cấu hình FreeRTOS & Xử lý Nút nhấn (Input)
 
 **Vấn đề gặp phải:**
-- Cần chuyển đổi từ FreeRTOS v1 sang **CMSIS-RTOS v2** để hỗ trợ quản lý Task tốt hơn.
+- Cần chuyển đổi từ FreeRTOS v1 sang **CMSIS-RTOS v2**.
 - Nút nhấn User Button cần xử lý sự kiện theo **cạnh lên** (từ nhả sang nhấn) thay vì mức logic.
 
 **Giải pháp & Code hiện thực:**
