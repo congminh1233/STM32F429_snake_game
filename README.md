@@ -140,7 +140,7 @@ void draw_tile(uint16_t x, uint16_t y, uint32_t color)
 
 ---
 
-### 3.4. Giai đoạn 4: Game Tick & Cơ chế di chuyển (Warping)
+### 3.4. Giai đoạn 4: Game Tick & Cơ chế di chuyển theo tick (Warping)
 
 **Vấn đề gặp phải:**
 
@@ -180,7 +180,7 @@ Point_t get_next_head(Snake_t *s)
 
 ---
 
-### 3.5. Giai đoạn 5: Logic Rắn (Thân & Đuôi)
+### 3.5. Giai đoạn 5: Logic thắng/thua & Di chuyển nhiều khúc rắn (Thân & Đuôi)
 
 **Vấn đề gặp phải:**
 
@@ -222,16 +222,16 @@ if (!grow)
 
 ---
 
-### 3.6. Giai đoạn 6: Random Food & Thuật toán LFSR
+### 3.6. Giai đoạn 6: Random Food & Logic cho rắn ăn mồi
 
 **Vấn đề gặp phải:**
 
-* Hàm `rand()` chuẩn của C cần thư viện nặng và seed thời gian.
+* Hàm `rand()` của C cần thư viện và seed thời gian.
 * Vị trí thức ăn (Food) sinh ra ngẫu nhiên có thể bị trùng vào thân rắn.
 
 **Giải pháp:**
 
-* Tự cài đặt bộ tạo số ngẫu nhiên giả (Pseudo-random) dùng thuật toán **LFSR 32-bit**.
+* Bộ tạo số ngẫu nhiên giả (Pseudo-random) dùng thuật toán **LFSR 32-bit**.
 * Dùng vòng lặp `do-while` để kiểm tra trùng lặp vị trí spawn.
 
 *Trích đoạn code Random & Spawn (`main.c`):*
@@ -291,6 +291,13 @@ void food_spawn(Food_t *f, const Snake_t *s)
 ```c
 #define HUD_HEIGHT    20
 #define MAP_H_OFFSET   (HUD_HEIGHT + 1)
+
+#define SCREEN_W      240
+#define SCREEN_H      320
+
+#define MAP_W (SCREEN_W / TILE_SIZE)
+#define MAP_H ((SCREEN_H - HUD_HEIGHT) / TILE_SIZE)
+#define MAP_MAX_LEN (MAP_W * MAP_H)
 
 void draw_score(uint32_t score)
 {
