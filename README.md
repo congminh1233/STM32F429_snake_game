@@ -190,7 +190,7 @@ Point_t get_next_head(Snake_t *s)
 **Giải pháp:**
 
 * Lưu lại tọa độ đuôi trước khi di chuyển để xóa hiển thị.
-* Điều chỉnh vòng lặp kiểm tra va chạm: **Bắt đầu từ `i = 1**` (bỏ qua phần tử `body[0]` là đuôi rắn) vì đuôi sẽ di chuyển đi ngay trong tick này.
+* Điều chỉnh vòng lặp kiểm tra va chạm: **Bắt đầu từ `i = 1`** (bỏ qua phần tử `body[0]` là đuôi rắn) vì đuôi sẽ di chuyển đi ngay trong tick này.
 
 *Trích đoạn code xử lý va chạm và đuôi (`main.c`):*
 
@@ -308,3 +308,9 @@ void draw_score(uint32_t score)
 }
 
 ```
+
+---
+
+## 4. Kết luận
+
+Dự án đã hoàn thành việc xây dựng một game Snake hoàn chỉnh trên hệ nhúng STM32F429.
